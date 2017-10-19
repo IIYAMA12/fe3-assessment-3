@@ -85,7 +85,7 @@ var allFileData = [
         // write the rest of the path. pathStart will be added in front of the path below.
         path : "Geboorte__kerncijfer_171017230756.csv",  // *
 
-        metaData : {
+        metadata : {
             owner : "CBS",
             source : "http://statline.cbs.nl/Statweb/publication/?DM=SLNL&PA=37201&D1=0%2c2-3%2c6&D2=5-16&D3=22-26&HDR=T&STB=G1%2cG2&VW=D"
         },
@@ -247,6 +247,10 @@ var allFileData = [
             afterProcessFunction : function (container, allData) {
                 // Still need to change data? Please do it here.
 
+                // make a column for years
+                for (var i = 0; i < allData.length; i++) {
+                    allData[i].year = d3.timeFormat("%Y")(allData[i].date);
+                }
                 //
                 return allData;
             },
@@ -283,6 +287,7 @@ var allFileData = [
 
                 x.domain(dateRange);
 
+
                 y.domain([0, d3.max(allData, function(d) {
                     return d.gemiddeld_kindertal_per_vrouw;
                 })]);
@@ -316,8 +321,8 @@ var allFileData = [
             },
             prepareSecondaryGraphFunction : function (container, allData) {
                 container.secondaryGraph = {
-                    column : "date",
-                    columnLabel : "regios"
+                    column : "gemiddeld_kindertal_per_vrouw",
+                    columnLabel : "year"
                 };
                 return allData;
             }
@@ -364,7 +369,7 @@ var allFileData = [
         // write the rest of the path. pathStart will be added in front of the path below.
         path : "NFL_fandom_data-surveymonkey.csv",  // *
 
-        metaData : {
+        metadata : {
             owner : "dmil",
             source : "https://github.com/fivethirtyeight/data/blob/master/nfl-fandom/NFL_fandom_data-surveymonkey.csv"
         },

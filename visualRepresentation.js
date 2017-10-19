@@ -312,7 +312,7 @@ function makeGraph (fileData, dualGraph, secondGraph) {
 
     }
 
-    makeSecondaryChart(fileData);
+    makeSecondaryChart(fileData, allData);
     // inspiration bar chart from: https://bl.ocks.org/mbostock/3885304 by Bostock’s, M.
 
 }
@@ -482,7 +482,7 @@ function updateGraph(fileData) {
                 });
 
 
-    makeSecondaryChart(fileData);
+    makeSecondaryChart(fileData, allData);
 }
 
 function changeDataset () {
@@ -533,7 +533,7 @@ var secondaryGraphGroup = secondaryGraph.append("g")
     .attr("transform", "translate(" + pieSize + "," + pieSize + ")");
 
 
-function makeSecondaryChart (fileData) {
+function makeSecondaryChart (fileData, allData) {
 
     var secondaryGraphData = fileData.secondaryGraph;
     if (secondaryGraphData != undefined) {
@@ -541,7 +541,7 @@ function makeSecondaryChart (fileData) {
 
         var pieRadius = pieSize / 2;
 
-        var allData = fileData.allData.sort(function (a, b) { // sort from large to small (as it should be done)
+        var allData = allData.sort(function (a, b) { // sort from large to small (as it should be done)
             return  b[secondaryGraphData.column] - a[secondaryGraphData.column];})
 
         // create an d3 object/function that will process our data and use it to create the piechart.
