@@ -1,6 +1,6 @@
 # Data file reader, cleaner and more or less my own system to view my data
 
-Tableau Public, great tool, especially that you can script in it while visualising your data. What it most importantly can't do is give me full control. So I decided to build something more than the assignment 3, something that would save me from my frustrations caused by tools that are stubborn.
+Tableau Public, great tool, especially that you can script in it while visualizing your data. What it most importantly can't do is give me full control. So I decided to build something more than the assignment 3, something that would save me from my frustrations caused by tools that are stubborn.
 
 ## File splitsing
 I made the decision to split up my files because of two important reasons.
@@ -9,7 +9,7 @@ I made the decision to split up my files because of two important reasons.
 
 ### Javascript files
 There are 3 javascript files.
-* index.js _Which will is where all the action begins and it contains information of how the files will be readed_
+* index.js _Which will is where all the action begins and it contains information of how the files will be read_
 * fileDataFunctions.js _Contains (medium/large)functions that are will do a lot of the processing + some experimental functions_
 * utility.js _Contains some usefull functions, from me and external sources._
 
